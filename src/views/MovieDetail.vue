@@ -1,5 +1,5 @@
 <template>
-  <section class="pt-8 pb-16">
+  <section class="pt-8 pb-16" v-if="movie">
     <div class="text-[#100f0f]">
       <div class="shadow-md pb-5">
         <div class="container">
@@ -20,12 +20,12 @@
           </div>
         </div>
       </div>
-      <div class="container">
-        <div class="mt-9">
+      <div class="container" v-if="backDrops.length > 0 || movieOverview">
+        <div class="mt-9" v-if="movieOverview">
           <h2 class="text-3xl font-bold">Storyline</h2>
           <p>{{ movieOverview }}</p>
         </div>
-        <div class="mt-9">
+        <div class="mt-9" v-if="backDrops.length > 0">
           <h3 class="text-3xl font-bold">Photos & Videos</h3>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-4 pt-4">
             <div v-for="(backDrop, index) in backDrops" :key="index">
